@@ -1,0 +1,11 @@
+.SearchForm-input {
+}
+
+.SearchForm-button {
+  margin-right: 10px;
+  padding: 5px 10px;
+  background-color: #36679e;
+  border-style: none;
+  border-radius: 5px;
+  padding-right: 10px;
+}
