@@ -24,9 +24,9 @@ const MovieDetailsPage = lazy(() =>
 function App() {
   return (
     <Container>
-      <Navigation />
-
+     
       <Suspense fallback={<Loader />}>
+         <Navigation />
         <Switch>
           <Route path="/" exact>
             <HomePage />
@@ -39,13 +39,12 @@ function App() {
           <Route path="/movies/:movieId">
             <MovieDetailsPage />
           </Route>
-
           <Route>
             <HomePage />
           </Route>
         </Switch>
-      </Suspense>
       <Toaster />
+      </Suspense>
     </Container>
   );
 }

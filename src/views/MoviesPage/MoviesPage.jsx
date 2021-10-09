@@ -26,7 +26,10 @@ export default function MoviesPage() {
   const [searchName, setSearchName] = useState('');
   const [page, setPage] = useState(1);
   const searchQuery = new URLSearchParams(location.search).get('query') ?? '';
-
+const checkLocation = () => {
+    const { state } = location;
+    return state?.from ? state.from : '';
+   };
   useEffect(() => {
     if (!searchQuery) return;
 
@@ -71,7 +74,7 @@ export default function MoviesPage() {
               <NavLink
                 to={{
                   pathname: `${url}/${movie.id}`,
-                  state: { from: { location } },
+                  state: { from: checkLocation() },
                 }}
               >
                 <Poster

@@ -46,8 +46,14 @@ export default function MovieDetailsPage() {
   }, [movieId, history, location?.state?.from?.location]);
 
   const goBack = () => {
-    history.push(location?.state?.from?.location ?? '/movies');
+    history.push(location?.state?.from?.location ?? '/');
   };
+
+   const checkLocation = () => {
+    const { state } = location;
+    return state?.from ? state.from : '';
+   };
+  
   return (
     <Container>
       {movie && (
@@ -79,7 +85,7 @@ export default function MovieDetailsPage() {
               <NavLink
                 to={{
                   pathname: `${url}/cast`,
-                  state: { from: { location } },
+                  state: { from: checkLocation() },
                 }}
                 className="Navigation_link Addititonal_info"
                 activeClassName="Active_link"
@@ -89,7 +95,7 @@ export default function MovieDetailsPage() {
               <NavLink
                 to={{
                   pathname: `${url}/reviews`,
-                  state: { from: { location } },
+                  state: { from: checkLocation() },
                 }}
                 className="Navigation_link Addititonal_info"
                 activeClassName="Active_link"
